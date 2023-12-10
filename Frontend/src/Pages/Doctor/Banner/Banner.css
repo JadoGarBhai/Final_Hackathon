@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bimg {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMiOS16qDjwOpme9AL031LjfE1kU9fM9rk8w&usqp=CAU");
+  height: 380px;
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
