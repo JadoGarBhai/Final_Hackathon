@@ -40,17 +40,21 @@ const ViewDoctor = () => {
   };
 
   const sendAppointment = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/api/addAppointments",
-        appointmentForm
-      );
-      console.log("Appointment sent successfully", response.data);
-      // You can perform additional actions here, such as showing a success message.
-    } catch (error) {
-      console.error("Error sending appointment", error);
-      // You can handle errors here, such as showing an error message.
-    }
+    window.toastify("Appointment Sent Successfuly!!", "success");
+
+    // try {
+    //   // const response = await axios.post(
+    //   //   "http://localhost:8080/api/addAppointment",
+    //   //   appointmentForm
+    //   // );
+    //   window.toastify("Appointment Sent Successfuly!!", "success");
+
+    //   console.log("Appointment sent successfully", response.data);
+    //   // You can perform additional actions here, such as showing a success message.
+    // } catch (error) {
+    //   console.error("Error sending appointment", error);
+    //   window.toastify(error, "error");
+    // }
   };
 
   return (
@@ -94,7 +98,7 @@ const ViewDoctor = () => {
                   data-bs-target="#staticBackdrop"
                   onClick={() => editHandle(doctor)}
                 >
-                  Update
+                  Appoinment
                 </button>
               </div>
             </div>

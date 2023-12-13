@@ -17,10 +17,10 @@ const Auth = () => {
 
     const { email, password } = state;
     if (email.includes("admin@gmail.com") && password.includes("admin123")) {
-      alert("login successfull");
+      window.toastify("Admin Logged in Successfuly!!", "success");
       navigate("/admindashboard");
     } else {
-      alert("failed");
+      window.toastify("Invalid Email or Passworsd", "error");
     }
   };
   return (

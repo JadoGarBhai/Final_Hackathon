@@ -41,31 +41,50 @@ const Doctor = () => {
         [e.target.name]: e.target.value,
       });
     }
+
+    console.log("Selected Doctor:", selectedDoctor);
+    // console.log("Updated Data:", updatedData);
+    console.log("New Doctor:", newDoctor);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (selectedDoctor) {
-      await axios.put(
-        `http://localhost:8080/updDr/${selectedDoctor._id}`,
-        updatedData
-      );
-    } else {
-      await axios.post("http://localhost:8080/addDr", newDoctor);
+    // console.log("Submitting Form");
+    // console.log("Selected Doctor: ", selectedDoctor);
+    // console.log("Updated Data: ", updatedData);
+    // console.log("New Doctor: ", newDoctor);
+
+    try {
+      if (selectedDoctor) {
+        await axios.put(
+          `http://localhost:8080/updDr/${selectedDoctor._id}`,
+          updatedData
+        );
+        console.log("Doctor Updated into Database");
+        window.toastify("Doctor Updated into Database", "success");
+      } else {
+        await axios.post("http://localhost:8080/addDr", newDoctor);
+        console.log("Doctor Added Successfully!!");
+        window.toastify("Doctor Added Successfully!!", "success");
+      }
+
+      getDoctors();
+
+      setSelectedDoctor(null);
+      setUpdatedData(initialstate);
+      setNewDoctor(initialstate);
+    } catch (error) {
+      // window.toastify(er, "error");
+      console.error("Error submitting form:", error);
     }
-
-    getDoctors();
-
-    setSelectedDoctor(null);
-    setUpdatedData(initialstate);
-    setNewDoctor(initialstate);
   };
 
   // DELETE DATA
   const handleDelete = async (doctorId) => {
     await axios.delete(`http://localhost:8080/delDr/${doctorId}`);
     getDoctors();
+    window.toastify("Doctor Deleted Successfuly!!", "success");
   };
 
   // UPDATE DATA
@@ -77,7 +96,6 @@ const Doctor = () => {
       contactinfo: doctor.contactinfo,
       fee: doctor.fee,
       timing: doctor.timing,
-      schedule: doctor.schedule, // Added schedule
     });
   };
 
