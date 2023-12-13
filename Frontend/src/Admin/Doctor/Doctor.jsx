@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Arrow from "../../Navbar/Arrow";
 import axios from "axios";
 
 const initialstate = {
@@ -82,6 +83,7 @@ const Doctor = () => {
 
   return (
     <>
+      <Arrow path={"/admindashboard"} />
       <h1
         style={{ display: "flex", justifyContent: "center" }}
         className="mt-4"
@@ -89,7 +91,7 @@ const Doctor = () => {
         Add Doctor
       </h1>
       <div className="container-fluid">
-        <div className="row">
+        <div className="row col-10">
           <div className="col-10 mx-auto">
             {/* Form for adding or updating data */}
             <form onSubmit={handleSubmit}>

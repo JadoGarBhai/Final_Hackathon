@@ -1,6 +1,11 @@
 import React from "react";
 import Navbar from "../../Navbar/Navbar";
 import "./Home.css";
+import services from "../../assets/imges/services.PNG";
+import clinic from "../../assets/imges/clinic.PNG";
+import clinicFeatures from "../../assets/imges/clinicFeature.PNG";
+import patient from "../../assets/imges/patient.PNG";
+import appointment from "../../assets/imges/appointment.PNG";
 
 const Home = () => {
   return (
@@ -35,6 +40,26 @@ const Home = () => {
         </div>
 
         <div className="container-fluid"></div>
+      </div>
+
+      <div className="col-12">
+        <img src={services} className="col-12" />
+      </div>
+
+      <div className="col-12">
+        <img src={clinic} className="col-12" />
+      </div>
+
+      <div className="col-12">
+        <img src={patient} className="col-12" />
+      </div>
+
+      <div className="col-12">
+        <img src={appointment} className="col-12" />
+      </div>
+
+      <div className="col-12">
+        <img src={clinicFeatures} className="col-12" />
       </div>
     </>
   );
