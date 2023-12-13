@@ -13,13 +13,12 @@ Router.post("/addDr", async (req, res) => {
       contactinfo: req.body.contactinfo,
       fee: req.body.fee,
       timing: req.body.timing,
-      shedule: req.body.shedule, // Assuming shedule is an array of appointments
     });
     const result = await newDoctor.save();
     res.json(result);
     console.log(result);
   } catch (error) {
-    res.status(500).json("Error creating doctor");
+    res.status(500).json(error);
   }
 });
 
@@ -58,7 +57,6 @@ Router.put("/updDr/:id", async (req, res) => {
       contactinfo: req.body.contactinfo,
       fee: req.body.fee,
       timing: req.body.timing,
-      shedule: req.body.shedule,
     };
     const result = await Doctor.findByIdAndUpdate(id, updatedDoctor, {
       new: true,
